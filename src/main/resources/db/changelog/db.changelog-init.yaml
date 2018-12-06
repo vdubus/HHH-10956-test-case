@@ -29,6 +29,12 @@ databaseChangeLog:
             name: city
             type: varchar(255)
         - column:
+            name: date_start
+            type: datetime
+        - column:
+            name: date_end
+            type: datetime
+        - column:
             name: agent_login
             type: varchar(255)
             constraints:
