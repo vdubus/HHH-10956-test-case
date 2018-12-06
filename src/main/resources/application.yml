@@ -1,0 +1,12 @@
+---
+spring:
+  batch:
+    initialize-schema: always
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    com.github.vdubus.hibernate: info
+...

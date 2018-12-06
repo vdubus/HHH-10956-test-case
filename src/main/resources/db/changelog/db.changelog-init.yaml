@@ -1,0 +1,42 @@
+---
+databaseChangeLog:
+- changeSet:
+    id: initialization
+    author: vdubus
+    changes:
+    - createTable:
+        tableName: agent
+        columns:
+        - column:
+            name: login
+            type: varchar(255)
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: first_name
+            type: varchar(255)
+        - column:
+            name: last_name
+            type: varchar(255)
+    - createTable:
+        tableName: mission
+        columns:
+        - column:
+            name: id
+            type: bigint(20)
+        - column:
+            name: city
+            type: varchar(255)
+        - column:
+            name: agent_login
+            type: varchar(255)
+            constraints:
+              nullable: false
+              references: agent(login)
+              foreignKeyName: fk_mission_agent
+    - addPrimaryKey:
+        constraintName: pk_mission
+        tableName: mission
+        columnNames: id, agent_login
+...
